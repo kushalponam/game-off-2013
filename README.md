@@ -2,4 +2,5 @@
 
 ## Not Decided Name
 
-This is a puzzle game where the character has to change its color in order to blend in the environment and get to the exit. If it fails to do then, it has to face the consequences
+This is a puzzle game where the platforms change with sound and player has to change his/her colour in order to blend in the environment and get to the exit. If he/she fails to do so...... 
+# Play 
