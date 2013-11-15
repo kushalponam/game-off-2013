@@ -1,4 +1,4 @@
-![GitHub Game Off Game Jam](https://github.com/kushalponam/game-off-2013/blob/master/ScreenShots/Change.png)
+[Screenpic!](ScreenShots/Change.png)
 
 ## Not Decided Name
 
