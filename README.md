@@ -1,4 +1,4 @@
-[Screenpic!](ScreenShots/Change.png)
+![ScreenShot](https://raw.github.com/kushalponam/game-off-2013/blob/master/ScreenShots/Change.png)
 
 ## Not Decided Name
 
