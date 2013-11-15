@@ -12,6 +12,6 @@ Step 1: [Install unity web player](http://unity3d.com/webplayer)
 
 Step 2: [Download the Builds.zip](https://github.com/kushalponam/game-off-2013/tree/master/Builds)
 
-Step 3: Extract the ZIP and open Builds.html and play!!.
+Step 3: Download bit Builds.html, Builds.Unity3D and open Builds.html and play!!.
 
 Step 4: If you like/dislike you can give your comments to kushal.ponam@gmail.com
