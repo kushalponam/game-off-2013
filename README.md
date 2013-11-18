@@ -1,4 +1,4 @@
-![ScreenShot](https://raw.github.com/kushalponam/game-off-2013/master/ScreenShots/Change.png)
+![ScreenShot](https://raw.github.com/kushalponam/game-off-2013/master/ScreenShots/Change1.png)
 
 ## Pakito in Tileland
 
