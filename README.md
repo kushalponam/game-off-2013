@@ -7,7 +7,7 @@ Fortunately it can change colour and blend in the environment but does not know 
 So,play as Pakito and help her get out of the TileLand.
 
 # Controls
-  Up/Down/Left/Arrow : Directions
+  Up/Down/Left/Right Arrow Keys : Directions
 
   Q/W/E              : Change Colours
   
@@ -21,7 +21,8 @@ Step 2: [Play](http://kushalponam.github.io/game-off-2013/)
 
 # Softwares
 
-Unity 3d pro game engine
+Unity 3d pro game engine.
+The game did not use any of the pro features. So, the project file can be opened in the Unity free version.
 
 Photoshop
 
