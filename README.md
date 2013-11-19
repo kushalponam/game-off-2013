@@ -3,10 +3,8 @@
 ## Pakito in Tileland
 
 Pakito has been left in TileLand which is unpredictable and dangerous.
-
 Fortunately it can change colour and blend in the environment but does not know how to get out.
-
-SO, play as Pakito and help her get out of the TileLand.
+So,play as Pakito and help her get out of the TileLand.
 
 # Controls
   Up/Down/Left/Arrow : Directions
