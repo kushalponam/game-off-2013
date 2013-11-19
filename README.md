@@ -21,7 +21,8 @@ Step 2: [Play](http://kushalponam.github.io/game-off-2013/)
 
 # Softwares
 
-Unity 3d pro game engine
+Unity 3d pro game engine.
+The game did not use any of the pro features. So, the project file can be opened in the Unity free version.
 
 Photoshop
 
