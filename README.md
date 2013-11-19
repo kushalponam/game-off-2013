@@ -7,7 +7,7 @@ Fortunately it can change colour and blend in the environment but does not know 
 So,play as Pakito and help her get out of the TileLand.
 
 # Controls
-  Up/Down/Left/Arrow : Directions
+  Up/Down/Left/Right Arrow Keys : Directions
 
   Q/W/E              : Change Colours
   
