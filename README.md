@@ -28,7 +28,7 @@ Photoshop
 
 #Team Members
 
-Kushal Ponnam  : Programmer/Game Designer.
+[Kushal Ponnam](http://www.linkedin.com/in/kushalponnam)  : Programmer/Game Designer.
 
 Helena Barbosa : Artist/Game Designer.
 
