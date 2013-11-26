@@ -4,10 +4,11 @@ using System.Collections;
 public class KillArrow : MonoBehaviour {
 	
 	public float speed;
+	public bool YDirection;
 	// Use this for initialization
 	void Start () {
-	speed = 200;
-	Invoke("DestroyItself",2.0f);
+	speed = 100;
+	Invoke("DestroyItself",1.0f);
 	}
 	void DestroyItself(){
 		Destroy(this.gameObject);
@@ -22,9 +23,15 @@ public class KillArrow : MonoBehaviour {
 		}
 	}
 	
+	Vector3 final;
 	// Update is called once per frame
 	void Update () {
-		Vector3 final = new Vector3(speed*Time.deltaTime,0);
+		if(YDirection){
+		final = new Vector3(0,-speed*Time.deltaTime);
+		}else{
+		final = new Vector3(speed*Time.deltaTime,0);	
+		}
+			
 		transform.position += final;
 	}
 }

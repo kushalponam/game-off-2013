@@ -44,8 +44,16 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\AI\Bot.cs" />
+     <Compile Include="Assets\Scripts\AI\Waypoints.cs" />
      <Compile Include="Assets\Scripts\BaseClasses\PlayerController.cs" />
      <Compile Include="Assets\Scripts\BaseClasses\PlayerPhysics.cs" />
+     <Compile Include="Assets\Scripts\Levels\Level1.cs" />
+     <Compile Include="Assets\Scripts\Levels\Level2.cs" />
+     <Compile Include="Assets\Scripts\Levels\Level3.cs" />
+     <Compile Include="Assets\Scripts\Levels\Level4.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\LevelSelect.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\Menu.cs" />
      <Compile Include="Assets\Scripts\Manager\Eventmanager.cs" />
      <Compile Include="Assets\Scripts\Manager\GUIManager.cs" />
      <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
@@ -53,6 +61,7 @@
      <Compile Include="Assets\Scripts\Objects\KeyRoom.cs" />
      <Compile Include="Assets\Scripts\Objects\KillArrow.cs" />
      <Compile Include="Assets\Scripts\Objects\Traps.cs" />
+     <Compile Include="Assets\Scripts\Objects\Walls.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

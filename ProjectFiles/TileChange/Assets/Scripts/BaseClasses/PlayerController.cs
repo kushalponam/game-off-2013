@@ -5,22 +5,38 @@ using System.Collections;
 [AddComponentMenu("ChangeGame/Contoller")]
 public class PlayerController : MonoBehaviour {
 	
-	private  Color yellow = new Color(0.92f,0.87f,0.38f);
-	private  Color purple = new Color(0.71f,0.40f,0.75f);
+	//private Color yellow = new Color(0.81f,0.82f,0.32f);
+	//private Color purple = new Color(0.71f,0.40f,0.75f);
+	//private Color blue   = new Color(0.24f,0.48f,0.62f);
+	//private Color Red    = new Color(0.69f,0.46f,0.21f);
+	public Texture[] colors;
 	
+	[HideInInspector]
+	// used by walls to push
+	public bool CanBePushed;
+	[HideInInspector]
 	public float Horizontal;
+	[HideInInspector]
 	public float Vertical;
 	public float MoveStep;
 	public LayerMask WallMask;
 	public LayerMask Blocks;
-	public LayerMask KeyMask;
 	
-	private PlayerPhysics playerphysics;
+	[HideInInspector]
+	public PlayerPhysics playerphysics;
 	private GameObject tilecolor;
-	private bool isStarted=false;
+	
+	[HideInInspector]
 	public bool cantmove=false;
-	public bool GotKey=false;
-	private int i;
+	
+	[HideInInspector]
+	public int NumberofColors;
+	
+	[HideInInspector]
+	public float TileTime;
+
+	
+	private GameObject LastHitHole;
 	public enum state{
 		Idle,
 		Blended,
@@ -30,20 +46,14 @@ public class PlayerController : MonoBehaviour {
 	public state Disguise;
 	// Use this for initialization
 	void Start () {
-		i=1;
-		renderer.material.color = yellow;
-		GotKey=false;
-		isStarted=false;
+		CanBePushed=true;
 		cantmove=false;
 		Disguise = state.Idle;
 		playerphysics=GetComponent<PlayerPhysics>();
 	}
-	
-	
-	void ChangeColor(){
-	 i++;
-	 renderer.material.color = i>1 ? purple:yellow;
-	 if(i>=2) i=0;
+		
+	void ChangeColor(int i){
+	renderer.material.SetTexture("_MainTex",colors[i]);
 	}
 	
 	void ChangePlayerState(GameObject s){
@@ -51,25 +61,34 @@ public class PlayerController : MonoBehaviour {
 		case "Safe":
 			Disguise = state.Idle;
 			break;
-		case "Green":
+		case "Hole":
 			Disguise = state.Fall;
-			if(!isStarted) StartCoroutine("FallintoHole",s);
 			break;
-		case "Brown":
-			Disguise = state.Fall;
-			if(!isStarted) StartCoroutine("FallintoHole",s);
+		case "Yellow":
+			if(renderer.material.mainTexture!= colors[0]){
+				Disguise = state.Detected;
+			}else if(renderer.material.mainTexture==colors[0]){
+				Disguise = state.Blended;
+			}
 			break;
 		case "Blue":
-			if(renderer.material.color!= purple){
+			if(renderer.material.mainTexture!= colors[2]){
 				Disguise = state.Detected;
-			}else if(renderer.material.color == purple){
+			}else if(renderer.material.mainTexture==colors[2]){
+				Disguise = state.Blended;
+			}
+			break;
+		case "Purple":
+			if(renderer.material.mainTexture!= colors[1]){
+				Disguise = state.Detected;
+			}else if(renderer.material.mainTexture==colors[1]){
 				Disguise = state.Blended;
 			}
 	        break;
 		case "Red":
-			if(renderer.material.color!= yellow){
+			if(renderer.material.mainTexture!= colors[3]){
 				Disguise = state.Detected;
-			}else if(renderer.material.color == yellow){
+			}else if(renderer.material.mainTexture==colors[3]){
 				Disguise = state.Blended;
 			}
 			break;
@@ -77,27 +96,7 @@ public class PlayerController : MonoBehaviour {
 			break;
 		}
 	}
-	
-	
-	IEnumerator FallintoHole(GameObject g){
-		isStarted = true;
-	    yield return new WaitForSeconds(0.2f);
-		if(Disguise!=state.Fall){
-			isStarted=false;
-			StopCoroutine("FallintoHole");
-		}else{
-			 stopplayer(g);
-			 cantmove=true;
-			 InvokeRepeating("ReduceSize",0,Time.deltaTime);
-			 g.GetComponent<Traps>().OpenDoor();
-			}
-	 yield return null;
-	}
-	
-	void stopplayer(GameObject g){
-		transform.position = new Vector3(g.transform.position.x,g.transform.position.y,transform.position.z);
-	}
-	void ReduceSize(){
+	public void ReduceSize(){
 		Vector3 s = new Vector3(3,3,3);
 		transform.localScale -= s*3*Time.deltaTime;
 		if(transform.localScale.x<0.5f){
@@ -133,19 +132,35 @@ public class PlayerController : MonoBehaviour {
 		
 		Vector3 p = transform.position;
 	    tilecolor = playerphysics.DetectTile(p,5,Blocks);
-		
-		if(Input.GetButtonDown("Change")){
-			ChangeColor();
+				
+		if(Input.GetKeyDown(KeyCode.Q)){
+			ChangeColor(0);
+		}
+		if(Input.GetKeyDown(KeyCode.W)){
+			ChangeColor(1);
+		}
+		if(Input.GetKeyDown(KeyCode.E)){
+			ChangeColor(2);
 		}
 		
-		ChangePlayerState(tilecolor);
-
+		if(tilecolor!=null)ChangePlayerState(tilecolor);
 		if(Input.GetButtonDown("Horizontal")||Input.GetButtonDown("Vertical")){
-			
-			playerphysics.DetectWalls(ref Horizontal,ref Vertical,p,MoveStep,WallMask,KeyMask,ref GotKey);
+			playerphysics.DetectWalls(ref Horizontal,ref Vertical,p,MoveStep,WallMask);
 			Vector3 final = new Vector3(MoveStep*Horizontal,MoveStep*Vertical,0);
 			transform.position += final;
-		}		
-	}
+		}
+		if(playerphysics.levelcomplete){
+			GameManager gm = Camera.main.GetComponent<GameManager>();
+			gm.LevelComplete();
+		}
+		
+	   if(Input.GetKeyDown(KeyCode.Escape)){
+		 	if(Application.CanStreamedLevelBeLoaded("MainMenu")){
+				Application.LoadLevel("MainMenu");
+			}
+	   }
 
+		
+	}
+	
 }
