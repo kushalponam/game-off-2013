@@ -58,7 +58,36 @@ The game has four levels with progressive increase in difficulty and introducing
 
 Level1
 
-![Shot](https://raw.github.com/kushalponam/game-off-2013/master/ScreenShots/lvl1.png)
+![Shot1](https://raw.github.com/kushalponam/game-off-2013/master/ScreenShots/lvl1.png)
+
+In this level the player is introduced to first mechanic CHANGE COLOUR in order to blend in. If not the arrows detect him and kills him.
+Player's Goal is to get the key and get to the door.
+
+Level2
+
+![Shot2](https://raw.github.com/kushalponam/game-off-2013/master/ScreenShots/lvl2.png)
+
+There is a increased difficulty in this level and there are two keys out of which only one can open the door.
+The new mechanic introduced in this level is fast press . In order to go to the right side of the level he has to pass three holes and only way to do is to fast press  
+
+Level3
+![Shot3] (https://raw.github.com/kushalponam/game-off-2013/master/ScreenShots/lvl3.png)
+
+Follow the beat because the tiles CHANGE their orientation .
+There is a safe zone at the top for the player to stop there and think a bit of how to get to the door.
+
+Level4
+
+![Shot4](https://raw.github.com/kushalponam/game-off-2013/master/ScreenShots/lvl4.png)
+
+Final level in which the enemy bird has the key and player has to kill the bird to get the Key. But, he does not have an ability to kill. He has to use the his obstacles to kill the bird.
+
+Game Ending
+
+![Shot5](https://raw.github.com/kushalponam/game-off-2013/master/ScreenShots/End.png)
+
+
+
 
 
  
