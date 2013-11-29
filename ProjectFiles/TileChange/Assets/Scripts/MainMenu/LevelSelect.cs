@@ -2,7 +2,12 @@ using UnityEngine;
 using System.Collections;
 
 public class LevelSelect : MonoBehaviour {
-
+	
+	public GUIStyle level1;
+	public GUIStyle level2;
+	public GUIStyle level3;
+	public GUIStyle level4;
+	public GUIStyle menu;
 	// Use this for initialization
 	void Start () {
 	
@@ -10,27 +15,27 @@ public class LevelSelect : MonoBehaviour {
 	
 	void OnGUI(){
 		
-		if (GUI.Button(new Rect(550,220,150,50),"Level 1")){
-			if(Application.CanStreamedLevelBeLoaded("ChangeLevel1")){
-			Application.LoadLevel("ChangeLevel1");
+		if (GUI.Button(new Rect(200,200,150,70)," ",level1)){
+			if(Application.CanStreamedLevelBeLoaded("Story")){
+			Application.LoadLevel("Story");
 		}
 		}
-		if(GUI.Button(new Rect(550,280,150,50),"Level 2")){
-			if(Application.CanStreamedLevelBeLoaded("ChangeLevel2")){
-			Application.LoadLevel("ChangeLevel2");
+		if(GUI.Button(new Rect(550,200,150,70)," ",level2)){
+			if(Application.CanStreamedLevelBeLoaded("HLevel2")){
+			Application.LoadLevel("HLevel2");
 		}
 		}
-		if(GUI.Button(new Rect(550,340,150,50),"Level 3")){
-			if(Application.CanStreamedLevelBeLoaded("ChangeLevel3")){
-			Application.LoadLevel("ChangeLevel3");
+		if(GUI.Button(new Rect(200,340,150,70)," ",level3)){
+			if(Application.CanStreamedLevelBeLoaded("HLevel3")){
+			Application.LoadLevel("HLevel3");
 		}
 		}
-		if(GUI.Button(new Rect(550,400,150,50),"Level 4")){
-			if(Application.CanStreamedLevelBeLoaded("ChangeLevel4")){
-			Application.LoadLevel("ChangeLevel4");
+		if(GUI.Button(new Rect(550,340,150,70)," ",level4)){
+			if(Application.CanStreamedLevelBeLoaded("HLevel4")){
+			Application.LoadLevel("HLevel4");
 		}
 		}
-		if(GUI.Button(new Rect(550,460,150,50),"Main Menu")){
+		if(GUI.Button(new Rect(650,500,150,50)," ",menu)){
 			if(Application.CanStreamedLevelBeLoaded("MainMenu")){
 			Application.LoadLevel("MainMenu");
 		}

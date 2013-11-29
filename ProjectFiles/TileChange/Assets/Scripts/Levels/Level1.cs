@@ -20,14 +20,14 @@ public class Level1 : GameManager {
 	public override void LevelComplete ()
 	{
 		base.LevelComplete ();
-		if(Application.CanStreamedLevelBeLoaded("ChangeLevel2")){
-			Application.LoadLevel("ChangeLevel2");
+		if(Application.CanStreamedLevelBeLoaded("HLevel2")){
+			Application.LoadLevel("HLevel2");
 		}
 	}
 	
 	public override void ChangePlayerSettings ()
 	{
-		PlayerMoveStep = 10;
+		PlayerMoveStep =10;
 		ColorsToChange=4;
 		TileTime = 0.6f;
 		base.ChangePlayerSettings ();

@@ -3,6 +3,10 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 	
+	public AudioClip DieClip;
+	public AudioClip keyClip;
+	
+	
 	public GameObject[] Blocks;
 	public int ChangeStep;
 	private GameObject playerspawn;
@@ -66,6 +70,16 @@ public class GameManager : MonoBehaviour {
 		if(AddKeyAtStart)Instantiate(Resources.Load("Prefab/Key"),KeySpawn.transform.position,Quaternion.identity);
 		if(AddDuplicateKey)Instantiate(Resources.Load("Prefab/DuplicateKey"),DuplicateKey.transform.position,Quaternion.identity);
 	}
+	public void PlayDieClip(){
+		audio.clip= DieClip;
+		audio.Play();
+	}
+	
+	public void PlayKeyClip(){
+		audio.clip = keyClip;
+		audio.Play();
+	}
+	
 	void spawningplayer(){
 		Instantiate(Resources.Load("Prefab/Player"),playerspawn.transform.position,Quaternion.Euler(new Vector3(0,0,180)));
 		pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();

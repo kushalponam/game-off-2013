@@ -14,14 +14,14 @@ public class Level2 : GameManager {
 	public override void ChangeArrowTime ()
 	{
 		ArrowTime=0.6f;
-		TileTime=0.5f;
+		TileTime=0.4f;
 		base.ChangeArrowTime();
 	}
 	public override void LevelComplete ()
 	{
 		base.LevelComplete ();
-		if(Application.CanStreamedLevelBeLoaded("ChangeLevel3")){
-			Application.LoadLevel("ChangeLevel3");
+		if(Application.CanStreamedLevelBeLoaded("HLevel3")){
+			Application.LoadLevel("HLevel3");
 		}
 	}
 	

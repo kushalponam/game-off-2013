@@ -5,19 +5,23 @@ using System.Collections;
 public class PlayerPhysics : MonoBehaviour {
 	
 	private BoxCollider bcollider;
+	[HideInInspector]
 	public Vector3 s;
+	[HideInInspector]
 	public Vector3 c;
 	private bool Gotkey;
+	[HideInInspector]
 	public bool levelcomplete;
 	private Vector3 colliderscale;
 	
-	
+	protected GameManager GM;
 	protected Ray ray;
 	protected RaycastHit hit;
 	// Use this for initialization
 	public virtual void Start () {
 	    Gotkey=false;
 		levelcomplete=false;
+		GM = Camera.main.GetComponent<GameManager>();
 		bcollider = GetComponent<BoxCollider>();
 		colliderscale = transform.localScale;
 		s = new Vector3(bcollider.size.x*colliderscale.x,bcollider.size.y*colliderscale.y,bcollider.size.z*colliderscale.z);
@@ -42,7 +46,6 @@ public class PlayerPhysics : MonoBehaviour {
 			}
 	}
 	public GameObject DetectTile(Vector3 p,float Distance,LayerMask Blocks){
-		
 	      float z = p.z+c.z+s.z/2;
 		  ray = new Ray(new Vector3(transform.position.x,transform.position.y,z),new Vector3(0,0,1));
 		  Debug.DrawRay(ray.origin,ray.direction,Color.red);  
@@ -62,6 +65,7 @@ public class PlayerPhysics : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		if(col.collider.gameObject.tag=="Key"){
 			Gotkey=true;
+			GM.PlayKeyClip();
 			Destroy(col.collider.gameObject);
 		}
 		if(col.collider.gameObject.tag == "DuplicateKey"){

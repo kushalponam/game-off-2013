@@ -4,29 +4,34 @@ using System.Collections.Generic;
 
 public class Bot : PlayerPhysics {
 	
-	
-	
-	private GameObject WayPointController;
+	public Texture2D[] HealthTextures;
+	public bool Haskey;
+	public GameObject WayPointController;
+	[HideInInspector]
 	public List<Transform> waypointlist;
 	public int currentwaypoint=0;
 	private Vector3 OriginalPosition;
+	
+	public Texture2D[] animatedtextures;
 	
 	public int Damage;
 	
 	public GameObject Seed; 
 	private int xdirection,ydirection;
-	private GameManager GM;
+	private bool isStarted;
+	private GameObject Bar;
 	// Use this for initialization
 	public override void Start () {
 	base.Start();
+	isStarted=false;
 	Damage = 30;
-	GM = Camera.main.GetComponent<GameManager>();
 	OriginalPosition = transform.position;
 	SetUpWaypoints();
-		
+	StartCoroutine("AnimateEnemy");
+	Bar = transform.FindChild("Health").gameObject;
 	}
 	void SetUpWaypoints(){
-		WayPointController = GameObject.Find("Waypoints");
+		//WayPointController = GameObject.Find("Waypoints");
 		Transform[] waypoints = WayPointController.GetComponentsInChildren<Transform>();
 		waypointlist = new List<Transform>();
 		foreach(Transform t in waypoints){
@@ -37,29 +42,44 @@ public class Bot : PlayerPhysics {
 	}
 	void OnTriggerEnter(Collider col){
 		if(col.collider.gameObject.tag=="Arrow"){
-		//	Debug.Log("HitBy Arrow");
-		    Damage -=5;
-		//	Debug.Log("now the damage is"+Damage);
+			audio.Play();
+			UpdateDamageFeedBack();
+		    Destroy(col.gameObject);
+			Damage -=5;
 			if(Damage<0){
-				GM.AddKeyAtStart=true;
-				GM.KeySpawn.transform.position = new Vector3(transform.position.x,transform.position.y,8.5f);
-				GM.SpawnKey();
+			  if(Haskey){
+					GM.AddKeyAtStart=true;
+					GM.KeySpawn.transform.position = new Vector3(transform.position.x,transform.position.y,8.5f);
+					GM.SpawnKey();
+				}
 				Destroy(gameObject);	
 			}
 		}
 	}
 	float x, y;
+	GameObject g;
 	void DetectChameleon(){
 		ray = new Ray(new Vector3(x,y,7),new Vector3(xdirection,ydirection,0));
 		Debug.DrawRay(ray.origin,ray.direction,Color.red);
-		if(Physics.Raycast(ray,out hit,10)){
+		if(Physics.Raycast(ray,out hit,20)){
 			if(hit.collider.tag == "Player"){
-		     //  Instantiate(Seed,transform.position,Quaternion.identity);
-			  Debug.Log("Player Detected");
+				if(hit.collider.gameObject.GetComponent<PlayerController>().Disguise==PlayerController.state.Idle) return;
+				if(!isStarted) StartCoroutine("ThrowSeed");
 			}
 		}
-		
 	}
+	
+	IEnumerator ThrowSeed(){
+		isStarted=true;
+	    g=Instantiate(Seed,new Vector3(transform.position.x,transform.position.y,7),Quaternion.identity)as GameObject;
+		Stone s = g.GetComponent<Stone>();
+		s.xDirection = xdirection;
+		s.yDirection = ydirection;
+		yield return new WaitForSeconds(0.5f);
+		isStarted=false;
+		yield return null;
+	}
+	
 	float currentwaypointX;
 	float currentwaypointY;
 	float rotationz;
@@ -69,10 +89,12 @@ public class Bot : PlayerPhysics {
 			rotationz=0;
 			x = transform.position.x+c.x;
 		    y = transform.position.y+c.y+s.x/2;
+		//	y = transform.position.y+c.y;
 			xdirection=0;
 			ydirection=1;
 		}else if(relativerotation.x>0 && relativerotation.y>0){
 			rotationz=270;
+		//	x=transform.position.x+c.x;
 			x = transform.position.x+c.x+s.x/2;
 		    y = transform.position.y+c.y;
 		    ydirection=0;
@@ -81,11 +103,13 @@ public class Bot : PlayerPhysics {
 			rotationz=180;
 			x = transform.position.x+c.x;
 		    y = transform.position.y+c.y-s.y/2;
+		  //  y = transform.position.y+c.y;
 			xdirection=0;
 			ydirection=-1;
 		}else if(relativerotation.x<0 && relativerotation.y<0){
 			rotationz = 90;
 			x = transform.position.x+c.x-s.x/2;
+		//	x = transform.position.x+c.x;
 		    y = transform.position.y+c.y;
 			xdirection=-1;
 			ydirection=0;
@@ -108,11 +132,31 @@ public class Bot : PlayerPhysics {
 		}
 	}
 	
+	
+	int t;
+	IEnumerator AnimateEnemy(){
+		
+	Begin:
+		renderer.material.SetTexture("_MainTex",animatedtextures[t]);
+		yield return new WaitForSeconds(0.2f);
+		t++;
+	    if(t>=2) t=0;
+	goto Begin;
+	}
+	
+	
+	void UpdateDamageFeedBack(){
+		
+		Bar.renderer.material.SetTexture("_MainTex",HealthTextures[5-(Damage/6)]);
+		
+	}
+	
 	// Update is called once per frame
 	public override void Update () {
 	
-	MoveTowardsNextWaypoint();
+	    MoveTowardsNextWaypoint();
 		RotateEnemy();
 		DetectChameleon();
+		
 	}
 }

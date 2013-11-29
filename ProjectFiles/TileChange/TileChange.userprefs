@@ -1,20 +1,26 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AI\Bot.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Objects\Stone.cs">
     <Files>
-      <File FileName="Assets\Scripts\BaseClasses\PlayerPhysics.cs" Line="67" Column="53" />
-      <File FileName="Assets\Scripts\AI\Bot.cs" Line="60" Column="4" />
-      <File FileName="Assets\Scripts\BaseClasses\PlayerController.cs" Line="64" Column="15" />
-      <File FileName="Assets\Scripts\Objects\Traps.cs" Line="32" Column="3" />
-      <File FileName="Assets\Scripts\Objects\KillArrow.cs" Line="28" Column="18" />
-      <File FileName="Assets\Scripts\Manager\GameManager.cs" Line="50" Column="29" />
-      <File FileName="Assets\Scripts\Objects\Arrows.cs" Line="43" Column="9" />
-      <File FileName="Assets\Scripts\Levels\Level1.cs" Line="25" Column="4" />
-      <File FileName="Assets\Scripts\Levels\Level2.cs" Line="23" Column="56" />
-      <File FileName="Assets\Scripts\Levels\Level3.cs" Line="26" Column="39" />
-      <File FileName="Assets\Scripts\Levels\Level4.cs" Line="20" Column="26" />
-      <File FileName="Assets\Scripts\MainMenu\Menu.cs" Line="18" Column="5" />
-      <File FileName="Assets\Scripts\MainMenu\LevelSelect.cs" Line="33" Column="33" />
+      <File FileName="Assets\Scripts\AI\Bot.cs" Line="45" Column="17" />
+      <File FileName="Assets\Scripts\BaseClasses\PlayerAnimation.cs" Line="13" Column="3" />
+      <File FileName="Assets\Scripts\BaseClasses\PlayerController.cs" Line="115" Column="41" />
+      <File FileName="Assets\Scripts\BaseClasses\PlayerPhysics.cs" Line="69" Column="37" />
+      <File FileName="Assets\Scripts\Audio\sound.cs" Line="56" Column="10" />
+      <File FileName="Assets\Scripts\Objects\Arrows.cs" Line="37" Column="2" />
+      <File FileName="Assets\Scripts\Objects\Traps.cs" Line="17" Column="16" />
+      <File FileName="Assets\Scripts\Objects\KillArrow.cs" Line="20" Column="215" />
+      <File FileName="Assets\Scripts\Manager\GameManager.cs" Line="102" Column="16" />
+      <File FileName="Assets\Scripts\Levels\Level1.cs" Line="39" Column="3" />
+      <File FileName="Assets\Scripts\Levels\Level2.cs" Line="40" Column="1" />
+      <File FileName="Assets\Scripts\Levels\Level3.cs" Line="31" Column="3" />
+      <File FileName="Assets\Scripts\Levels\Level4.cs" Line="26" Column="30" />
+      <File FileName="Assets\Scripts\MainMenu\Menu.cs" Line="28" Column="35" />
+      <File FileName="Assets\Scripts\MainMenu\LevelSelect.cs" Line="38" Column="33" />
+      <File FileName="Assets\Scripts\Objects\Walls.cs" Line="37" Column="27" />
+      <File FileName="Assets\Scripts\Objects\Stone.cs" Line="15" Column="11" />
+      <File FileName="Assets\Scripts\MainMenu\Tutorial.cs" Line="24" Column="10" />
+      <File FileName="Assets\Scripts\AI\Waypoints.cs" Line="33" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

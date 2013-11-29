@@ -10,7 +10,7 @@ public class Level3 : GameManager {
 		 AddDuplicateKey=true;
 		 AddKeyAtStart=true; 
 		 base.Start();
-		 ChangeStep = 4;
+		 ChangeStep = 3;
 	}
 	 
 	public override void ChangeArrowTime ()
@@ -22,8 +22,8 @@ public class Level3 : GameManager {
 	public override void LevelComplete ()
 	{
 		base.LevelComplete ();
-		if(Application.CanStreamedLevelBeLoaded("ChangeLevel4")){
-			Application.LoadLevel("ChangeLevel4");
+		if(Application.CanStreamedLevelBeLoaded("HLevel4")){
+			Application.LoadLevel("HLevel4");
 		}
 	}
 	

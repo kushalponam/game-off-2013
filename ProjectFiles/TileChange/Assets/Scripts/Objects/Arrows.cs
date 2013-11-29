@@ -9,17 +9,19 @@ public class Arrows : PlayerPhysics {
 	public	bool isStarted;
 	public bool UpSideArrow;
 	private float x,y,xpos,ypos;
-	
-	public GameObject g;
+	public AudioClip sound;
+	private GameObject g;
 	// Use this for initialization
 	public override void Start () {
         base.Start();
 		isStarted=false;
+		audio.clip = sound;
 	}
 	
 	IEnumerator ThrowArrow(){
 		isStarted=true;
 	yield return new WaitForSeconds(ArrowDetectTime);
+		 audio.Play();
 		 if(UpSideArrow){
 	     g = Instantiate(arrowobject,new Vector3(xpos,ypos,7),Quaternion.Euler(new Vector3(0,180,90))) as GameObject;
 		 KillArrow k = g.GetComponent<KillArrow>();

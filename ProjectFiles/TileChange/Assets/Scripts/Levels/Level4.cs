@@ -22,8 +22,8 @@ public class Level4 : GameManager {
 	public override void LevelComplete ()
 	{
 		base.LevelComplete ();
-		if(Application.CanStreamedLevelBeLoaded("MainMenu")){
-			Application.LoadLevel("MainMenu");
+		if(Application.CanStreamedLevelBeLoaded("Won")){
+			Application.LoadLevel("Won");
 		}
 	}
 	

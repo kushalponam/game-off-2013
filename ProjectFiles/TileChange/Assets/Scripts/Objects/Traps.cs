@@ -43,6 +43,7 @@ public class Traps : MonoBehaviour {
 		Shake();
 		yield return new WaitForSeconds(TileTime);
 	    if(g!=null){
+		GM.PlayDieClip();
 		PlayerController PC = g.GetComponent<PlayerController>();
 		if(PC!=null)PC.cantmove=true;
 		Fall();

@@ -9,8 +9,10 @@ public class PlayerController : MonoBehaviour {
 	//private Color purple = new Color(0.71f,0.40f,0.75f);
 	//private Color blue   = new Color(0.24f,0.48f,0.62f);
 	//private Color Red    = new Color(0.69f,0.46f,0.21f);
-	public Texture[] colors;
 	
+
+	public Texture[] colors;
+
 	[HideInInspector]
 	// used by walls to push
 	public bool CanBePushed;
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour {
 		cantmove=false;
 		Disguise = state.Idle;
 		playerphysics=GetComponent<PlayerPhysics>();
+		
 	}
 		
 	void ChangeColor(int i){
@@ -101,12 +104,12 @@ public class PlayerController : MonoBehaviour {
 		transform.localScale -= s*3*Time.deltaTime;
 		if(transform.localScale.x<0.5f){
 			GameManager GM = Camera.main.GetComponent<GameManager>();
-			GM.SpawnPlayer(0.5f);
+			GM.SpawnPlayer(1.0f);
 			Destroy(gameObject);	
 			CancelInvoke("ReduceSize");
 			}
 	}
-	
+
 	void RotatePlayer(){
 		float Rotate=0;
 		if(Input.GetButtonDown("Horizontal")){
@@ -119,6 +122,9 @@ public class PlayerController : MonoBehaviour {
 		}
 		
 	}
+	
+	
+	
 	
 	// Update is called once per frame
 	void Update () {

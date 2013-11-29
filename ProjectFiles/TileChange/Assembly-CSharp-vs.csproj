@@ -46,6 +46,8 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AI\Bot.cs" />
      <Compile Include="Assets\Scripts\AI\Waypoints.cs" />
+     <Compile Include="Assets\Scripts\Audio\sound.cs" />
+     <Compile Include="Assets\Scripts\BaseClasses\PlayerAnimation.cs" />
      <Compile Include="Assets\Scripts\BaseClasses\PlayerController.cs" />
      <Compile Include="Assets\Scripts\BaseClasses\PlayerPhysics.cs" />
      <Compile Include="Assets\Scripts\Levels\Level1.cs" />
@@ -54,12 +56,14 @@
      <Compile Include="Assets\Scripts\Levels\Level4.cs" />
      <Compile Include="Assets\Scripts\MainMenu\LevelSelect.cs" />
      <Compile Include="Assets\Scripts\MainMenu\Menu.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\Tutorial.cs" />
      <Compile Include="Assets\Scripts\Manager\Eventmanager.cs" />
      <Compile Include="Assets\Scripts\Manager\GUIManager.cs" />
      <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
      <Compile Include="Assets\Scripts\Objects\Arrows.cs" />
      <Compile Include="Assets\Scripts\Objects\KeyRoom.cs" />
      <Compile Include="Assets\Scripts\Objects\KillArrow.cs" />
+     <Compile Include="Assets\Scripts\Objects\Stone.cs" />
      <Compile Include="Assets\Scripts\Objects\Traps.cs" />
      <Compile Include="Assets\Scripts\Objects\Walls.cs" />
   </ItemGroup>
