@@ -38,15 +38,15 @@ All textures in the game are made by Helena Barbosa.
 
 Sounds : All Sounds have been used under Free to Use License
 
-Hexagonal Rainbow by BenDrake(http://www.jamendo.com/en/list/a16711/hexegonal-rainbow)
+[Hexagonal Rainbow by BenDrake](http://www.jamendo.com/en/list/a16711/hexegonal-rainbow)
 
-Clock by BenDrake (http://www.jamendo.com/en/track/120955/14-clock)
+[Clock by BenDrake] (http://www.jamendo.com/en/track/120955/14-clock)
 
-FullOfHoles by BenDrake(http://www.jamendo.com/en/track/121001/18-full-of-holes)
+[FullOfHoles by BenDrake](http://www.jamendo.com/en/track/121001/18-full-of-holes)
 
-HighImpact by DhaliusMusic (http://www.jamendo.com/en/artist/336846/dhalius-music)
+[HighImpact by DhaliusMusic] (http://www.jamendo.com/en/artist/336846/dhalius-music)
 
-Sound Effects from FreeSound (http://www.freesound.org/)
+[Sound Effects from FreeSound] (http://www.freesound.org/)
 
 #Description
 Please, read this only after playing the game. Thanks!. 
@@ -58,7 +58,7 @@ The game has four levels with progressive increase in difficulty and introducing
 
 Level1
 
-(https://raw.github.com/kushalponam/game-off-2013/master/ScreenShots/lvl1.png)
+[Shot](https://raw.github.com/kushalponam/game-off-2013/master/ScreenShots/lvl1.png)
 
 
  
