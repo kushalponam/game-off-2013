@@ -58,7 +58,7 @@ The game has four levels with progressive increase in difficulty and introducing
 
 Level1
 
-[Shot](https://raw.github.com/kushalponam/game-off-2013/master/ScreenShots/lvl1.png)
+![Shot](https://raw.github.com/kushalponam/game-off-2013/master/ScreenShots/lvl1.png)
 
 
  
