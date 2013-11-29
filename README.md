@@ -67,7 +67,7 @@ Level2
 
 ![Shot2](https://raw.github.com/kushalponam/game-off-2013/master/ScreenShots/lvl2.png)
 
-There is a increased difficulty in this level and there are two keys out of which only one can open the door.
+There is an increased difficulty in this level and there are two keys out of which only one can open the door.
 The new mechanic introduced in this level is fast press . In order to go to the right side of the level he has to pass three holes and only way to do is to fast press  
 
 Level3
