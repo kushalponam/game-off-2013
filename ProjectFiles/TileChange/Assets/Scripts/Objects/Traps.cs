@@ -15,7 +15,7 @@ public class Traps : MonoBehaviour {
 	void GetTiming(){
 		GM=Camera.main.GetComponent<GameManager>();
 		TileTime = GM.TileTime;
-		if(TileTime==0)GetTiming();     // run again if it misses .
+	
 	}
 	
 	public void Resize(){
